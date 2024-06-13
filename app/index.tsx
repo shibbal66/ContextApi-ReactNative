@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MainScreen from "./Screens/MainScreen";
 import Detail from "./Screens/Detail";
-import HeartContext from "./context/HeartContext";
+import HeartContext from "../context/HeartContext";
 
 const Stack = createNativeStackNavigator();
 

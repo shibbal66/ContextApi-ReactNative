@@ -1,16 +1,16 @@
-import React, {useContext} from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import HeartContext from '../context/HeartContext';
-import {Button} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import React, { useContext } from "react";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import HeartContext from "../../context/HeartContext";
+import { Button } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
-const Detail = ({route}) => {
-  const {item} = route.params;
-  const {hearts, setHearts} = useContext(HeartContext);
+const Detail = ({ route }) => {
+  const { item } = route.params;
+  const { hearts, setHearts } = useContext(HeartContext);
   const navigation = useNavigation();
 
   const toggleHeart = () => {
-    setHearts(prevHearts => ({
+    setHearts((prevHearts) => ({
       ...prevHearts,
       [item.id]: !prevHearts[item.id],
     }));
@@ -25,15 +25,16 @@ const Detail = ({route}) => {
           style={styles.heartIcon}
           source={
             hearts[item.id]
-              ? require('../assets/redheart.png')
-              : require('../assets/heartunfilled.png')
+              ? require("../assets/redheart.png")
+              : require("../assets/heartunfilled.png")
           }
         />
       </TouchableOpacity>
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('MainScreen')}
-        style={styles.goBackButton}>
+        onPress={() => navigation.navigate("MainScreen")}
+        style={styles.goBackButton}
+      >
         Go Back
       </Button>
     </View>
@@ -44,11 +45,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   description: {
     marginVertical: 20,
